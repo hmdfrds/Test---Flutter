@@ -1,6 +1,6 @@
 class Activity {
   final String activity;
-  final double price;
+  final num price;
 
   Activity({required this.activity, required this.price});
 

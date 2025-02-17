@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hendshake_assesment/widgets/activity_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,10 +14,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("Next"),
-            ),
+            ActivityPanel(),
           ],
         ),
       ),
