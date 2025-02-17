@@ -4,8 +4,6 @@ import 'package:hendshake_assesment/screens/history_screen.dart';
 import 'package:hendshake_assesment/widgets/activity_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../Provider/activity_provider.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

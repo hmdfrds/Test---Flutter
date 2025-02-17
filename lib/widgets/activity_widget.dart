@@ -17,7 +17,9 @@ class _ActivityPanelState extends State<ActivityPanel> {
   late ActivityProvider activityProvider;
 
   fetchActivity() async {
-    final url = Uri.parse('https://bored.api.lewagon.com/api/activity');
+    final url = Uri.parse(
+        'https://bored.api.lewagon.com/api/activity${activityProvider.selectedItem == null ? "" : "?type=${activityProvider.selectedItem}"}');
+
     final response = await http.get(url);
     setState(() {
       final newActivity = Activity.fromJson(jsonDecode(response.body));
