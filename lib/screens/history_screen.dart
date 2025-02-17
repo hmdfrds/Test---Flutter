@@ -9,20 +9,26 @@ class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    final activities =
-        Provider.of<ActivityProvider>(context).activities.reversed.toList();
-    final sortedActivities =
+    final activityProvider = Provider.of<ActivityProvider>(context);
+    final activities = activityProvider.activities.reversed.toList();
+    var sortedActivities =
         activities.reversed.toList().sublist(0, min(activities.length, 50));
+    if (activityProvider.selectedItem != null) {
+      sortedActivities = sortedActivities
+          .where((activity) => activity.type == activityProvider.selectedItem)
+          .toList();
+    }
 
     return Scaffold(
       appBar: AppBar(title: Text('History')),
       body: ListView.builder(
-        itemCount: Provider.of<ActivityProvider>(context).activities.length,
+        itemCount: sortedActivities.length,
         itemBuilder: (context, index) {
           final activity = sortedActivities[index];
           return ListTile(
             title: Text(activity.activity),
-            subtitle: Text("Price: ${activity.price.toString()}"),
+            subtitle: Text(
+                "Price: ${activity.price.toString()} Type: ${activity.type}"),
           );
         },
       ),
