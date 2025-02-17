@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:hendshake_assesment/Provider/activity_provider.dart';
 import 'package:hendshake_assesment/screens/history_screen.dart';
 import 'package:hendshake_assesment/widgets/activity_widget.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  navigateToHistoryScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HistoryScreen(),
+      ),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
-    navigateToHistoryScreen() {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HistoryScreen(),
-        ),
-      );
-    }
     return Scaffold(
       body: Container(
         width: double.infinity,
