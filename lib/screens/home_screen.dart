@@ -51,13 +51,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             DropdownButton(
               value: activityProvider.selectedItem,
-              items: getDropdownSelection()
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
+              items: [
+                DropdownMenuItem<String>(
+                  value: null,
+                  child: Text(""),
+                ),
+                ...getDropdownSelection()
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                })
+              ],
               onChanged: (newValue) {
                 setState(() {
                   activityProvider.updateSelectedItem(newValue);
